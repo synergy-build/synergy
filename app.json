@@ -32,6 +32,15 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Epilogue-SemiBold.ttf",
+            "./assets/fonts/Inter-Regular.ttf"
+          ]
+        }
       ]
     ],
     "experiments": {

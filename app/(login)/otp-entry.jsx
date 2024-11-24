@@ -1,8 +1,10 @@
 import { OtpInput } from "react-native-otp-entry";
-import { Image, StyleSheet, Platform, View, StatusBar, Text } from 'react-native';
+import { Image, StyleSheet, Platform, View, StatusBar, Text, Pressable } from 'react-native';
+import { Link } from 'expo-router';
 import * as colors from '../colors';
 
-export default function OTP() {
+
+export default function OTPEntry() {
   return (
     <View style={styles.view}>
       <View style={styles.textGroup}>
@@ -22,6 +24,19 @@ export default function OTP() {
           pinCodeContainerStyle: styles.pinCodeContainer,
         }}
       />
+      {/* back & next buttons */}
+      <View style={styles.navigationButtonGroup}>
+        <Link href="otp-info" asChild>
+            <Pressable style={{paddingHorizontal: 14, paddingVertical: 10}}>
+                <Text style={{color: colors.purple, fontFamily: 'Inter-Regular', fontSize: 16, textAlign: 'center',}}>Back</Text>
+            </Pressable>
+        </Link>
+        <Link href="resume-upload" asChild>
+            <Pressable style={{borderRadius: 14, paddingHorizontal: 14, paddingVertical: 10, backgroundColor: colors.purple,}}>
+                <Text style={{color: 'white', fontFamily: 'Inter-Regular', fontSize: 16, textAlign: 'center',}}>Next</Text>
+            </Pressable>
+        </Link>
+      </View>
     </View>
   );
 }
@@ -58,5 +73,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter-Regular',
     fontSize: 20,
     textAlign: 'center',
-  }
+  },
+  navigationButtonGroup: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    justifyContent: 'space-between',
+  },
 });

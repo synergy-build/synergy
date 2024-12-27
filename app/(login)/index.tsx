@@ -1,7 +1,6 @@
-import { Image, StyleSheet, Platform, View, StatusBar, Text, Pressable } from 'react-native';
-import * as colors from '../colors';
-import { Link } from 'expo-router';
-import ThemedButton from '@/components/ThemedButton'
+import ThemedButton from '@/components/ThemedButton';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { colors } from '@/constants/Colors';
 
 export default function ChooseLogin() {
   return (
@@ -22,17 +21,18 @@ export default function ChooseLogin() {
 
 const styles = StyleSheet.create({
   view: {
-    height: '100vh',
+    height: Dimensions.get('window').height, 
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: '10%',
-    gap: 60,
+    gap: 100,
   },
   buttonGroup: {
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 10,
+    gap: 13,
+    width: '100%',
   },
   textGroup: {
     position: 'relative',
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'semibold',
     textAlign: 'center',
-    color: colors.darkblue,
+    color: colors.darkBlue,
   },
   paragraph: {
     fontFamily: 'Inter-Regular',

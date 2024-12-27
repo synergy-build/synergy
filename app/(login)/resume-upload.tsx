@@ -1,8 +1,8 @@
-import { Image, StyleSheet, Platform, View, StatusBar, Text, Pressable, TextInput } from 'react-native';
-import React, {useState} from 'react';
-import * as colors from '../colors';
+import ThemedButton from '@/components/ThemedButton';
+import { colors } from '@/constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import ThemedButton from '@/components/ThemedButton'
+import React, { useState } from 'react';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 
 export default function ResumeUpload() {
   const [name, setName] = useState('');
@@ -12,7 +12,7 @@ export default function ResumeUpload() {
     <View style={styles.view}>
       {/* text */}
       <View style={styles.textGroup}>
-        <Ionicons name="document-text" size={70} color={colors.darkgray} />
+        <Ionicons name="document-text" size={70} color={colors.darkGray} />
         <Text style={styles.title} >Upload Resume</Text>
         <Text style={styles.paragraph}>We saved your login, now you can fill out your profile with your experience!</Text>
       </View>
@@ -27,12 +27,11 @@ export default function ResumeUpload() {
 
 const styles = StyleSheet.create({
   view: {
-    height: '100vh',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: '10%',
-    gap: 60,
+    gap: 200,
   },
   navigationButtonGroup: {
     width: '100%',
@@ -52,7 +51,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'semibold',
     textAlign: 'center',
-    color: colors.darkblue,
+    color: colors.darkBlue,
   },
   paragraph: {
     fontFamily: 'Inter-Regular',
@@ -62,6 +61,7 @@ const styles = StyleSheet.create({
   buttonGroup: {
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 10,
+    gap: 13,
+    width: '100%',
   },
 });

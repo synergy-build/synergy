@@ -1,9 +1,17 @@
-import { StyleSheet, View, Text, Pressable } from 'react-native';
-import React, {useState} from 'react';
-import * as colors from '@/app/colors';
-import { Link } from 'expo-router';
+import { colors } from '@/constants/Colors';
+import { Link, LinkProps } from 'expo-router';
+import React from 'react';
+import { Pressable, StyleSheet, Text } from 'react-native';
 
-export default function ThemedButton({text, path="/", type, customButtonStyle = {}, customTextStyle = {}}) {
+interface ThemedButtonProps {
+  text: string;
+  path?:  LinkProps['href'];
+  type?: 'fill' | 'outline' | 'text';
+  customButtonStyle?: object;
+  customTextStyle?: object;
+}
+
+export default function ThemedButton({text, path = "/", type, customButtonStyle = {}, customTextStyle = {}}: ThemedButtonProps) {
   const buttonStyle = StyleSheet.flatten([
     styles.button, 
     (type == 'fill') ? styles.fillButton : (type == 'outline' ? styles.outlineButton : styles.textButton),
@@ -32,7 +40,7 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 14,
     width: '100%',
-    padding: 10,
+    padding: 13,
   },
   buttonText: {
     fontFamily: 'Inter-Regular',

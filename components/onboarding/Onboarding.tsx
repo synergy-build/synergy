@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
-import {View, Text, StyleSheet, FlatList, Animated} from 'react-native';
-import slides from './onboardingSlides'
-import OnboardingItem from './onboardingItem'
+import React, { useRef, useState } from 'react';
+import { Animated, FlatList, StyleSheet, View } from 'react-native';
+import OnboardingItem from './onboardingItem';
+import slides from './onboardingSlides';
 
 const Onboarding = () => {
     const scrollX = useRef(new Animated.Value(0)).current;

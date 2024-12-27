@@ -1,17 +1,19 @@
-import { OtpInput } from "react-native-otp-entry";
-import { Image, StyleSheet, Platform, View, StatusBar, Text, Pressable } from 'react-native';
+import KeyboardWrapper from '@/components/KeyboardWrapper';
+import { colors } from '@/constants/Colors';
 import { Link } from 'expo-router';
-import * as colors from '../colors';
+import { Dimensions, Pressable, StyleSheet, Text, View } from 'react-native';
+import { OtpInput } from "react-native-otp-entry";
 
 
 export default function OTPEntry() {
   return (
-    <View style={styles.view}>
+    <KeyboardWrapper>
+      <View style={styles.view}>
       <View style={styles.textGroup}>
         <Text style={styles.title} >Enter OTP</Text>
         <Text style={styles.paragraph}>Enter the 6-digit code you received in your text messages. It expires in 30 minutes.</Text>
       </View>
-      <OtpInput style={{backgroundColor:colors.darkpurple}}
+      <OtpInput
         numberOfDigits={6} 
         focusColor={colors.purple}
         onTextChange={(text) => console.log(text)}
@@ -26,24 +28,25 @@ export default function OTPEntry() {
       />
       {/* back & next buttons */}
       <View style={styles.navigationButtonGroup}>
-        <Link href="otp-info" asChild>
+        <Link href={{ pathname: '/otp-info'}} asChild>
             <Pressable style={{paddingHorizontal: 14, paddingVertical: 10}}>
                 <Text style={{color: colors.purple, fontFamily: 'Inter-Regular', fontSize: 16, textAlign: 'center',}}>Back</Text>
             </Pressable>
         </Link>
-        <Link href="resume-upload" asChild>
+        <Link href={{ pathname: '/resume-upload'}}  asChild>
             <Pressable style={{borderRadius: 14, paddingHorizontal: 14, paddingVertical: 10, backgroundColor: colors.purple,}}>
                 <Text style={{color: 'white', fontFamily: 'Inter-Regular', fontSize: 16, textAlign: 'center',}}>Next</Text>
             </Pressable>
         </Link>
       </View>
     </View>
+    </KeyboardWrapper>
   );
 }
 
 const styles = StyleSheet.create({
   view: {
-    height: '100vh',
+    height: Dimensions.get('window').height, 
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -67,7 +70,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'semibold',
     textAlign: 'center',
-    color: colors.darkblue,
+    color: colors.darkBlue,
   },
   paragraph: {
     fontFamily: 'Inter-Regular',

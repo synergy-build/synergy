@@ -1,18 +1,17 @@
-import React from 'react';
-import {View, Text, StyleSheet, FlatList, useWindowDimensions} from 'react-native';
-import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { colors } from '@/constants/Colors';
 import Entypo from '@expo/vector-icons/Entypo';
-import * as colors from '@/app/colors'
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import React from 'react';
+import { StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
-import slides from './onboardingSlides'
 
 const iconSize = 30
 const onboardingIcons = [
-    <MaterialIcons name="people" size={iconSize} color={colors.lightgray} />,
-    <Entypo name="documents" size={iconSize} color={colors.lightgray} />,
-    <MaterialIcons name="handshake" size={iconSize} color={colors.lightgray} />,
-    <Entypo name="chat" size={iconSize} color={colors.lightgray} />
+    <MaterialIcons name="people" size={iconSize} color={colors.lightGray} />,
+    <Entypo name="documents" size={iconSize} color={colors.lightGray} />,
+    <MaterialIcons name="handshake" size={iconSize} color={colors.lightGray} />,
+    <Entypo name="chat" size={iconSize} color={colors.lightGray} />
 ]
 
 export default function OnboardingItem({item}: {item: any}) {
